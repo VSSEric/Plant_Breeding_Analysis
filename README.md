@@ -5,7 +5,7 @@
 
 Repositório dedicado ao ensino na área de experimentação em genética e melhoramento de plantas. 
 
-Nosso objetivo é orientar e auxiliar estudantes de graduação e pós-graduação que possuam interesse nos tópicos de Data Science voltado para o melhoramento genético de plantas. 
+Nosso objetivo é orientar e auxiliar estudantes de graduação e pós-graduação que possuam interesse nos tópicos de Ciência de Dados (Data Science) aplicada ao melhoramento genético de plantas. 
 
 Referências Bibliográficas: RAMALHO, M. A. P.; FERREIRA, D. F.; OLIVEIRA, A. C. de. Experimentação em Genética e Melhoramento de Plantas: 3.ed. Lavras: Editora UFLA, 2012.
 
