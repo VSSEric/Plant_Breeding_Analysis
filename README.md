@@ -18,7 +18,7 @@ Este repositório conta com diversas rotinas do software R voltadas para o auxil
 ## Responsáveis
 
 - Vinícius Quintão Carneiro - Professor adjunto da Universidade Federal de Lavras 
-- contato: vqcarneiro@gmail.com
+- contato: vinicius.carneiro@gmail.com
 - Lattes: http://lattes.cnpq.br/7418046043420782 
 
 - Eric Vinicius Vieira Silva – Doutorando pela Universidade Federal de Lavras
@@ -35,5 +35,5 @@ Este repositório conta com diversas rotinas do software R voltadas para o auxil
 ---
 ## Contribua
 
-- Em caso de erros entre em contato pelos e-mails: ericvinicius.vs@gmail.com ou vqcarneiro@gmail.com
+- Em caso de erros entre em contato pelos e-mails: ericvinicius.vs@gmail.com ou vinicius.carneiro@gmail.com
 - Sugestões de novos procedimentos são sempre bem-vindas.
