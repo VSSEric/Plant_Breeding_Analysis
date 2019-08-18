@@ -30,7 +30,6 @@ Este repositório conta com diversas rotinas do software R voltadas para o auxil
 
 - Windows
 - Software R
-- Software GENES
 
 ---
 ## Contribua
