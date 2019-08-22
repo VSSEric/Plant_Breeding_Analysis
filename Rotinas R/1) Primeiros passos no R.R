@@ -8,11 +8,11 @@
 
 ##------------------------ PRIMEIROS PASSOS ---------------------------##
 
-#OBS.: Nesta rotina ser„o utilizados os exemplos 1 e 2
+#OBS.: Nesta rotina ser√£o utilizados os exemplos 1 e 2
 
-##A " # " È utilizada para escrever comentarios, 
-##assim o Software R n„o "ler" o que est· escrito apÛs a #. 
-##Isso È util pois auxilia no entendimento das rotinas.
+##A " # " √© utilizada para escrever comentarios, 
+##assim o Software R n√£o "ler" o que est√° escrito ap√≥s a #. 
+##Isso √© util pois auxilia no entendimento das rotinas.
 
 ##comandos basicos no R -> ?; help; 
 ##help.search; instal.package; library, setwd, getwd() dir()
@@ -22,9 +22,9 @@
 
 citation() #Como citar o software R
 
-#No R, decimal È representado por ponto " . " Se desejamos escrever
-#quatro virgula cinco, a representaÁ„o correta È 4.5
-#virgula ser· utilizada para separar valores, linhas, colunas, e funÁıes
+#No R, decimal √© representado por ponto " . " Se desejamos escrever
+#quatro virgula cinco, a representa√ß√£o correta √© 4.5
+#virgula ser√° utilizada para separar valores, linhas, colunas, e fun√ß√µes
 
 #Instalando Pacotes
 
@@ -37,7 +37,7 @@ install.packages("agricolae")
 library("NOME DO PACOTE") #Carregando pacotes
 library("ExpDes.pt")
 
-#OperaÁıes matematicas b·sicas no R
+#Opera√ß√µes matematicas b√°sicas no R
 2+2
 3-1
 2*3 
@@ -59,31 +59,31 @@ tan(45) #Tangente
 ##-------------------------- CRIANDO OBJETOS -------------------------##
 #CRIANDO OBJETOS
 
-a<-7 # O comando <- indica que o objeto "a" receber· o valor 7; 
+a<-7 # O comando <- indica que o objeto "a" receber√° o valor 7; 
      #Esse objeto fica armazenado no ambiente de trabalho 
 
-a    #Chamando o objeto "a" o R apresentar· o valor atribuido ao objeto
+a    #Chamando o objeto "a" o R apresentar√° o valor atribuido ao objeto
 
 b<-5
 
-a+b  #Quando o comando "recebe" (<-) n„o È utilizado, o mesmo 
-     #n„o ser· armazenado
+a+b  #Quando o comando "recebe" (<-) n√£o √© utilizado, o mesmo 
+     #n√£o ser√° armazenado
 
-c<-a+b  #Caso queira armazenar o resultado, È necessario criar um objeto 
+c<-a+b  #Caso queira armazenar o resultado, √© necessario criar um objeto 
 
 c
 
-#AtenÁ„o com sobrepossiÁ„o. Sempre que um objetivo j· existente
-#recebe um novo valor, o anterior ser· substituido
+#Aten√ß√£o com sobrepossi√ß√£o. Sempre que um objetivo j√° existente
+#recebe um novo valor, o anterior ser√° substituido
 
-a #O objeto "a" È igual a 7
+a #O objeto "a" √© igual a 7
 
-a<-19 #Caso o mesmo objeto receba um novo valor, o mesmo substituir· o antigo
+a<-19 #Caso o mesmo objeto receba um novo valor, o mesmo substituir√° o antigo
 
 a
 
 a<-7
-a2<-19 #Caso n„o deseje apagar o objeto anterior. Deve ser criado um novo objeto, no caso "a2"
+a2<-19 #Caso n√£o deseje apagar o objeto anterior. Deve ser criado um novo objeto, no caso "a2"
 a
 a2
 
@@ -91,21 +91,21 @@ a2
 #Objetos armazenados 
 ls()
 
-#RemoÁ„o de objeto. Observe que somente a2 ser· removido do workspace
+#Remo√ß√£o de objeto. Observe que somente a2 ser√° removido do workspace
 rm(a2)
 
 
-#Deleta tudo que est· armazenado no workspace
+#Deleta tudo que est√° armazenado no workspace
 rm(list=ls())
 
 #Simulando dados
 
-#No software R È possivel simular dados
+#No software R √© possivel simular dados
 
-?rnorm #Ajuda a respeito da funÁ„o rnorm -> Gera aleatoriamente um
-       #conjunto de dados com distribuiÁ„o normal
+?rnorm #Ajuda a respeito da fun√ß√£o rnorm -> Gera aleatoriamente um
+       #conjunto de dados com distribui√ß√£o normal
 
-#rnorm(n, mean = 0, sd = 1) È a funÁ„o base
+#rnorm(n, mean = 0, sd = 1) √© a fun√ß√£o base
 
 Dados<-rnorm(n=100,mean=10, sd=3); Dados
 
@@ -117,7 +117,7 @@ rm(list=ls())
 
 ##---------------------- ENTRANDO COM DADOS NO R ----------------------##
 
-#… possivel entrar com dados de diversas formas no R. Ser„o mostradas
+#√â possivel entrar com dados de diversas formas no R. Ser√£o mostradas
 #as duas formas mais comuns.
 
 
@@ -131,13 +131,13 @@ a+b
 a*b
 a/b
 
-sum(a) #SomatÛrio de "a"
+sum(a) #Somat√≥rio de "a"
 sum(a+b)
 
-length(a+b) # n˙mero de elementos em a+b
-media<-sum(a+b)/length(a+b); media #A mÈdia pode ser encontrada por 
+length(a+b) # n√∫mero de elementos em a+b
+media<-sum(a+b)/length(a+b); media #A m√©dia pode ser encontrada por 
                                    #sum/length, ou simplesmente
-                                   #utilizando a funÁ„o mean(objeto)
+                                   #utilizando a fun√ß√£o mean(objeto)
 mean(a+b) 
           
 
@@ -148,14 +148,14 @@ mean(b)
 
 novob<-b[(order(b, na.last = TRUE, decreasing = TRUE))]; novob
 
-b2<-b[1:3];b2  #retirar os n˙meros do vetor b nas posiÁıes 1, 2 e 3
-b3<-b[-5]; b3  #retirar o quinta observaÁ„o
-b[6]<-100; b #Inserir o valor 100 na posiÁ„o 6
+b2<-b[1:3];b2  #retirar os n√∫meros do vetor b nas posi√ß√µes 1, 2 e 3
+b3<-b[-5]; b3  #retirar o quinta observa√ß√£o
+b[6]<-100; b #Inserir o valor 100 na posi√ß√£o 6
 
 a
 names(a)<-c("A","B","C","D", "E", "F");a
 mean(a)
-a2<-a[a>mean(a)]; a2 #retirar os maiores que a mÈdia
+a2<-a[a>mean(a)]; a2 #retirar os maiores que a m√©dia
 mean(a2)
 
 ab<-data.frame(a,b); ab #Criando data.frame composto pelos vetores a e b
@@ -164,9 +164,9 @@ names(ab)<-c("Amb1", "Amb2");ab #Renomeando as a e b para ambientes
 
 ab$Amb1 #Observar somente o Ambiente 1
 
-mean(ab$Amb1) #MÈdia do ambiente 1
+mean(ab$Amb1) #M√©dia do ambiente 1
 
-var(ab$Amb1) #Vari‚ncia do ambiente 1
+var(ab$Amb1) #Vari√¢ncia do ambiente 1
 
 length(ab[1,]) #[x,y] Neste caso x representa as linhas, e y as colunas
                #Estamos interessados em verificar quantos valores temos
@@ -181,19 +181,19 @@ sum(ab[,2])    #Somando os valores da coluna 2
 mA<-sum(ab[1,])/length(ab[1,]); mA #media de A -> 12/2 = 6
 mAmb2<-sum(ab[,2])/length(ab[,2]); mAmb2 #media do Amb2 -> 13/6 = 21.67
 
-#… possivel aplicar a funÁ„o apply
-#apply(X, MARGIN, FUN, ...) X=objeto, Margin = Lin ou Col? FUN = funÁ„o
+#√â possivel aplicar a fun√ß√£o apply
+#apply(X, MARGIN, FUN, ...) X=objeto, Margin = Lin ou Col? FUN = fun√ß√£o
 
-apply(ab,1,mean) #mÈdia de todos os genotipos (1 para linhas)
-apply(ab,2,mean) #mÈdia de todos os ambientes (2 para colunas)
+apply(ab,1,mean) #m√©dia de todos os genotipos (1 para linhas)
+apply(ab,2,mean) #m√©dia de todos os ambientes (2 para colunas)
 
 ab$Amb3<- c(30, 60, 90, 100, 120, 760); ab #Adicionando o Ambiente 3
-mean(ab$Amb3) #mÈdia ambiente 3
+mean(ab$Amb3) #m√©dia ambiente 3
 
-#… possivel conectar comandos utilizando &
+#√â possivel conectar comandos utilizando &
 ab[ab$Amb1 > mean(ab$Amb1)
    & ab$Amb2 > mean(ab$Amb2)
-   & ab$Amb3 > mean(ab$Amb3), ] #GenÛtipos acima da mÈdia em 
+   & ab$Amb3 > mean(ab$Amb3), ] #Gen√≥tipos acima da m√©dia em 
                                 #todos os Ambientes
 
 ab2<-ab[order(ab$Amb2, decreasing = TRUE), ]; ab2 #Ordenando de acordo
@@ -202,55 +202,55 @@ ab2<-ab[order(ab$Amb2, decreasing = TRUE), ]; ab2 #Ordenando de acordo
 
 #2) Importando planilha de dados txt
 
-#Primeiro È necess·rio definir o diretÛrio (pasta onde est„o os arquivos)
-#Para definir o diretÛrio basta utilizar a funÁ„o setwd
-#O caminho deve est· entre " e as barras duplicadas \\
+#Primeiro √© necess√°rio definir o diret√≥rio (pasta onde est√£o os arquivos)
+#Para definir o diret√≥rio basta utilizar a fun√ß√£o setwd
+#O caminho deve est√° entre " e as barras duplicadas \\
 
 setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis")
 #Ctrl+Shift+H -> DEFINIR DIRETORIO #Abrir a pasta diretamente
 
-getwd() #Verifica qual diretÛrio est· sendo utilizado
+getwd() #Verifica qual diret√≥rio est√° sendo utilizado
 dir() #Exibe todos os arquivos dentro do diretorio
 
-#Para importar o txt vamos utilizar a funÁ„o read.table. Lembrando que
+#Para importar o txt vamos utilizar a fun√ß√£o read.table. Lembrando que
 #deve-se usar o ponto " . " para decimais no txt
-ex1<-read.table("exemplo1.txt", h=T) #h=T informa que cabeÁalho
+ex1<-read.table("exemplo1.txt", h=T) #h=T informa que cabe√ßalho
 
 ex1
 head(ex1) #Primeiras linhas do txt
 tail(ex1) #Ultimas linhas do txt
 str(ex1) #Mostra a estrutura da tabela
 
-#Toda manipulaÁ„o de dados feita anteriormente È possivel de ser realizada
+#Toda manipula√ß√£o de dados feita anteriormente √© possivel de ser realizada
 #quando se importa a planilha
 
 #Exemplos
 rownames(ex1)<-c(LETTERS[1:20])#Nomeando as linhas. O Comando
                                #LETTERS indica que eu quero nomear as
                                #linhas com letras MAIUSCULAS da 1a Letra
-                               #do alfabeto (a) atÈ a 20a (T). letters p/
+                               #do alfabeto (a) at√© a 20a (T). letters p/
                                #minusculas
 ex1
 
 ex1$Amb1 #Observar dados somente do ambiente 1
 
-mean(ex1$Amb2) #MÈdia do ambiente 2
+mean(ex1$Amb2) #M√©dia do ambiente 2
 
-var(ex1$Amb3) #Vari‚ncia do ambiente 3
+var(ex1$Amb3) #Vari√¢ncia do ambiente 3
 
-apply(ex1,1,mean) #mÈdia de todos os genotipos
-apply(ex1,2,mean) #mÈdia de todos os ambientes
+apply(ex1,1,mean) #m√©dia de todos os genotipos
+apply(ex1,2,mean) #m√©dia de todos os ambientes
 
 
 ex1[ex1$Amb1 > mean(ex1$Amb1)
    & ex1$Amb2 > mean(ex1$Amb2)
-   & ex1$Amb3 > mean(ex1$Amb3), ] #GenÛtipos acima da mÈdia em 
+   & ex1$Amb3 > mean(ex1$Amb3), ] #Gen√≥tipos acima da m√©dia em 
                                   #todos os Ambientes
 
 ab2<-ab[order(ab$Amb2, decreasing = TRUE), ]; ab2
 
 
-##------------------- ESTATÕSTICA DESCRITIVA B¡SICA -------------------##
+##------------------- ESTAT√çSTICA DESCRITIVA B√ÅSICA -------------------##
 
 
 
@@ -275,7 +275,7 @@ apply(ex1,1,var)
 
 
 ex<-matrix(c(42,21,37,180,160,177,80,59,90), nrow=3,ncol=3,byrow=FALSE ) 
-#valores que estar„o em uma matrix com 3 linhas e 3 colunas
+#valores que estar√£o em uma matrix com 3 linhas e 3 colunas
 ex
 colnames(ex)<-c("Idade", "Altura", "Peso")
 row.names(ex)<-c("Paulo","Larissa", "Luiz")
@@ -300,8 +300,8 @@ colnames(z)<-c("Amb1", "Amb2","Amb3");z
 row.names(z)<-c(LETTERS[1:6]);z
 
 mean(z[ , "Amb1"])#Media Amb1
-mean(z["A", ])#MÈdia A
-mean(z["D", 1-3])#MÈdia de D Amb 1 e 3
+mean(z["A", ])#M√©dia A
+mean(z["D", 1-3])#M√©dia de D Amb 1 e 3
 
 #simulando uma matriz
 m<-matrix(rnorm(20, 0, 1), 5, 4) #matriz com 20 dados,5 lin e 4 col
@@ -315,7 +315,7 @@ A #Data frame A
 
 B<-data.frame(Tr=rep(1:3,times=3),Bl=rep(1:3,each=3),Prod=rnorm(9,10,1))
 
-#Observar o que a funÁ„o rep(x, times), rep(x, each) fazem
+#Observar o que a fun√ß√£o rep(x, times), rep(x, each) fazem
 Tr=rep(1:3,times=3); Tr
 Bl=rep(1:3,each=3);Bl
 
@@ -324,7 +324,7 @@ Trat2=rep(1:3,times=3, each=3); Trat2
 
 B #Data frame B
 
-DADOS<-edit(data.frame()) #possibilida a digitaÁ„o direta em uma planilha
+DADOS<-edit(data.frame()) #possibilida a digita√ß√£o direta em uma planilha
 DADOS
 
 
@@ -351,7 +351,7 @@ head(dados2)
 tail(dados2)
 str(dados2)
 summary(dados2)
-#Aplicando An·lise de Vari‚ncia nos dados
+#Aplicando An√°lise de Vari√¢ncia nos dados
 ANOVA<-aov(VarResp ~ Trat, data=dados2); summary(ANOVA)
 
 #Importando dados txt
@@ -363,29 +363,29 @@ ex3
 str(ex3)
 summary(ex3)
 #Utilizando o pacote ExpDes.pt
-library("ExpDes.pt") #ApÛs baixar o pacote, È necess·rio carreg·-lo
-                     #funÁ„o library("Nome do pacote")
+library("ExpDes.pt") #Ap√≥s baixar o pacote, √© necess√°rio carreg√°-lo
+                     #fun√ß√£o library("Nome do pacote")
 
-?ExpDes.pt #Ajuda sobre o pacote. Deve carreg·-lo primeiro
-           #No final da p·gina de ajuda temos os delineamentos.
-           #Neste caso ser· utilizado o Inteiramente ao Acaso (DIC)
-           #Ao clicar em dic podemos ver a funÁ„o e como us·-la
+?ExpDes.pt #Ajuda sobre o pacote. Deve carreg√°-lo primeiro
+           #No final da p√°gina de ajuda temos os delineamentos.
+           #Neste caso ser√° utilizado o Inteiramente ao Acaso (DIC)
+           #Ao clicar em dic podemos ver a fun√ß√£o e como us√°-la
 
 dic(trat=ex3$Trat, resp=ex3$VarResp, quali = TRUE, mcomp = "tukey", nl = FALSE,
     hvar='bartlett', sigT = 0.05, sigF = 0.05)
 
-#Para facilitar, podemos utilizar a funÁ„o attach
-attach(ex3) #Fixa a planilha de trabalho. Assim, n„o È necess·rio indicar
-            #O que s„o os tratamentos, nem a resposta. Basta utilizar
+#Para facilitar, podemos utilizar a fun√ß√£o attach
+attach(ex3) #Fixa a planilha de trabalho. Assim, n√£o √© necess√°rio indicar
+            #O que s√£o os tratamentos, nem a resposta. Basta utilizar
             #O nomes dos fatores do txt
 
 dic(Trat, VarResp, quali = TRUE, mcomp = "tukey", nl = FALSE,
     hvar='bartlett', sigT = 0.05, sigF = 0.05)
 
-#Note problemas com Normalidade dos residuos e homogeneidade de vari‚ncia
-#Esse tÛpicos ser„o abortados mais a frente.
+#Note problemas com Normalidade dos residuos e homogeneidade de vari√¢ncia
+#Esse t√≥picos ser√£o abortados mais a frente.
 
-detach(ex3) #Remove. Sempre utilizar essa funÁ„o antes de analisar 
+detach(ex3) #Remove. Sempre utilizar essa fun√ß√£o antes de analisar 
             #um novo conjunto de dados.
             
 
