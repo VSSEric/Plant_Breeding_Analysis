@@ -6,37 +6,37 @@
 ########################################################################
 
 
-##------------------------  EXPERIMENTA«√O  --------------------------##
+##------------------------  EXPERIMENTA√á√ÉO  --------------------------##
 
 # O planejamento de um experimento deve ser pautado em respeitar os 
-# principios da experimentaÁ„o
+# principios da experimenta√ß√£o
 
-#1) RepetiÁ„o
-#2) CasualizaÁ„o
+#1) Repeti√ß√£o
+#2) Casualiza√ß√£o
 #3) Controle local
 
-# Dessa forma a forma e qualidade das an·lise dependem sobretudo do planejamento 
-# e da conduÁ„o do experimento.
+# Dessa forma a forma e qualidade das an√°lise dependem sobretudo do planejamento 
+# e da condu√ß√£o do experimento.
 
-# Neste rotina ser„o abordados temas relacionados ao planejamento experimental 
-# e an·lise dos presupostos da An·lise de vari‚ncia (ANOVA)
+# Neste rotina ser√£o abordados temas relacionados ao planejamento experimental 
+# e an√°lise dos presupostos da An√°lise de vari√¢ncia (ANOVA)
 
 
-##---------------------- Sorteio (CasualizaÁ„o) ----------------------##
+##---------------------- Sorteio (Casualiza√ß√£o) ----------------------##
 
-# A CasualizaÁ„o È um dos principios b·sicos e obrigatÛrios da ANOVA
-# Este principio promove independÍncia dos erros (embora n„o o garanta)
-# um dos presupostos da an·lise de vari‚ncia. A casualizaÁ„o È realizada
+# A Casualiza√ß√£o √© um dos principios b√°sicos e obrigat√≥rios da ANOVA
+# Este principio promove independ√™ncia dos erros (embora n√£o o garanta)
+# um dos presupostos da an√°lise de vari√¢ncia. A casualiza√ß√£o √© realizada
 # a partir do sorteio do tratamentos ao longo do experimento.
 
 
-## O pacote agricolae È uma boa ferramenta para realizar sorteios
+## O pacote agricolae √© uma boa ferramenta para realizar sorteios
 
 install.packages("agricolae") #Instalar o pacote 
 library("agricolae") #Carregar o pacote
 
 ?`design.X` # Existem diversos delineamentos experimentais que podem/devem 
-            # ser utilizados, delineamentos no inglÍs È conhecido como design
+            # ser utilizados, delineamentos no ingl√™s √© conhecido como design
             # X deve ser substituido por:
                                 # crd para Inteiramente casualizado
                                 # rcdb para Blocos Completos casualizado
@@ -51,7 +51,7 @@ library("agricolae") #Carregar o pacote
                                 # strip para experimentos em faixas
 
 
-# PRIMEIRO PASSO - PROCURAR A FUN«√O E COPIAR/COLAR O COMANDO 
+# PRIMEIRO PASSO - PROCURAR A FUN√á√ÉO E COPIAR/COLAR O COMANDO 
  
 # design.crd(trt, r, serie = 2, seed = 0, kinds = "Super-Duper",randomization=TRUE)
 # design.rcbd(trt, r, serie = 2, seed = 0, kinds = "Super-Duper", first=TRUE,continue=FALSE,randomization=TRUE)
@@ -60,12 +60,12 @@ library("agricolae") #Carregar o pacote
 # design.lattice(trt, r=3, serie = 2, seed = 0, kinds = "Super-Duper",randomization=TRUE)
 
 #EXEMPLOS:
-setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis") #Definir diretÛrio ou Ctrl+Shift+H
+setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis") #Definir diret√≥rio ou Ctrl+Shift+H
 
-#DIC, 25 Tratamentos, 3 RepetiÁıes
+#DIC, 25 Tratamentos, 3 Repeti√ß√µes
 
-trt<-(1:25) #N˙mero de tratamentos
-r<-3 #N˙mero de repetiÁıes
+trt<-(1:25) #N√∫mero de tratamentos
+r<-3 #N√∫mero de repeti√ß√µes
 
 sorteioDIC<-design.crd(trt, r, serie = 3, seed = 0, kinds = "Super-Duper",randomization=TRUE)
 sorteioDIC
@@ -75,10 +75,10 @@ write.table(sorteioDIC$book, file='SorteioDIC.csv',
 
 #Configurando a planilha
 # 1)Abrir o arquivo CSV no Excel
-# 2)Selecionar a coluna dos dados -> Clicar em dados -> OpÁ„o texto para colunas
-#   Delimitado -> avanÁar -> OpÁ„o EspaÁos -> Concluir
+# 2)Selecionar a coluna dos dados -> Clicar em dados -> Op√ß√£o texto para colunas
+#   Delimitado -> avan√ßar -> Op√ß√£o Espa√ßos -> Concluir
 
-#DBCC, 25 Tratamentos, 3 RepetiÁıes
+#DBCC, 25 Tratamentos, 3 Repeti√ß√µes
 
 trt<-(1:25)
 r<-3
@@ -92,14 +92,14 @@ write.table(sorteioDBCC$book, file='SorteioDBCC.csv',
 #Obs: Configurar a planilha
 
 #FATORIAL, PRIM. FATOR 3 TRATS, 
-#SEGU. FATOR 12 TRATS -> TOTAL 3 x 12 = 48 trats , 3 RepetiÁıes
+#SEGU. FATOR 12 TRATS -> TOTAL 3 x 12 = 48 trats , 3 Repeti√ß√µes
 
 trt<-c(3,12)#Se tiver 3 fatores, basta separar os niveis de cada fator com virgula.
             #exemplo   c(5,3,2)
 
-r<-3        #n˙mero de repetiÁıes
+r<-3        #n√∫mero de repeti√ß√µes
 
-# O Fatorial È na verdade um esquema e n„o um delineamento, dessa forma, pode-se ter
+# O Fatorial √© na verdade um esquema e n√£o um delineamento, dessa forma, pode-se ter
 # o esquema fatorial em diferentes delineamentos como DIC, DBCC, Latice entre outros
 
 sorteioFATDIC<-design.ab(trt, r, serie = 3, design=c("crd"),seed = 0, kinds = "Super-Duper",first=TRUE,randomization=TRUE)
@@ -120,7 +120,7 @@ write.table(sorteioFATDBCC$book, file='SorteioFATDBCC.csv',
 #Obs2:Configurar a planilha
 
 
-#PARCELA SUBDIVIDIDA->PRIM.FAT. 3TRATS, SEG.FAT. 12TRATS->TOTAL 3x12=48 trats , 3 RepetiÁıes
+#PARCELA SUBDIVIDIDA->PRIM.FAT. 3TRATS, SEG.FAT. 12TRATS->TOTAL 3x12=48 trats , 3 Repeti√ß√µes
 
 #Semelhante ao fatorial.
 trt1<-(1:3)
@@ -144,10 +144,10 @@ write.table(sorteioSPLITDBCC$book, file='SorteioSPLITDBCC.csv',
 #Obs2:Configurar a planilha
 
 
-#LATICE SIMPLES 12 X 12 -> 12 bloquinhos, 2 repetiÁıes, 144 Tratamentos
+#LATICE SIMPLES 12 X 12 -> 12 bloquinhos, 2 repeti√ß√µes, 144 Tratamentos
 
 trt<-(1:144)
-r=2 # para l·tice triplo basta alterar o n˙mero de repetiÁıes para 3
+r=2 # para l√°tice triplo basta alterar o n√∫mero de repeti√ß√µes para 3
 
 sorteioLATICE<-design.lattice(trt, r, serie = 3, seed = 0, kinds = "Super-Duper",randomization=TRUE)
 sorteioLATICE
@@ -159,11 +159,11 @@ write.table(sorteioLATICE$book, file='SorteioLATICE.csv')
 
 ##---------------------------------------------------------------------##
 
-# Dessa forma, realizando o sorteio do experimento os principios obrigatÛrios
-# da experimentaÁ„o (RepetiÁ„o e CasualizaÁ„o, quando necess·rio controle local)
-# est„o sendo respeitados
+# Dessa forma, realizando o sorteio do experimento os principios obrigat√≥rios
+# da experimenta√ß√£o (Repeti√ß√£o e Casualiza√ß√£o, quando necess√°rio controle local)
+# est√£o sendo respeitados
 
-# Este È o primeiro passo para uma boa experimentaÁ„o!!!
+# Este √© o primeiro passo para uma boa experimenta√ß√£o!!!
 
 
 ##-------------------------------  FIM  -------------------------------##
