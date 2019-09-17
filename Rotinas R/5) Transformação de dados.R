@@ -2,24 +2,24 @@
 ###########                Rotina elaborada por              ###########
 ###########             Eric Vinicius Vieira Silva           ###########
 ###########              ericvinicius.vs@gmail.com           ###########
-###########                     22/08/2019                   ###########
+###########                     17/09/2019                   ###########
 ########################################################################
 
 
-##--------------------- TRANSFORMA«√O DE DADOS ------------------------##
+##--------------------- TRANSFORMA√á√ÉO DE DADOS ------------------------##
 -
-# Caso os pressupostos da ANOVA n„o sejam atingindos, os dados do experimento
-# n„o podem ser submetidos a An·lise de Vari‚ncia.
+# Caso os pressupostos da ANOVA n√£o sejam atingindos, os dados do experimento
+# n√£o podem ser submetidos a An√°lise de Vari√¢ncia.
 
 # Visando atender aos pressupostos algumas estrategias podem ser utilizadas
 
-# Como a transformaÁ„o de dados. 
+# Como a transforma√ß√£o de dados. 
 
-# OBS.: Nesta rotina ser· utilizado o exemplo 2
+# OBS.: Nesta rotina ser√° utilizado o exemplo 2
 
 ##--------------------- Verificando os pressupostos -------------------##
 
-setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis") #Definir diretÛrio ou Ctrl+Shift+H
+setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis") #Definir diret√≥rio ou Ctrl+Shift+H
 dir()
 dados<-read.table("exemplo2.txt", h=T)
 str(dados) 
@@ -28,24 +28,24 @@ AOVDados<-aov(VarResp ~ Trat + Rep, data = dados)
 AOVDados$residuals               # Extraindo os residuos/erros do nosso conjunto de dados
 
 shapiro.test(AOVDados$residuals) # Residuos significativos de acordo com Shapiro-Wilk test  
-                                 # Necess·rio transformaÁ„o para atender a Normalidade
+                                 # Necess√°rio transforma√ß√£o para atender a Normalidade
 
 bartlett.test(residuals(AOVDados)~dados$Trat) # Significativo para Homocedasticidade
-                                              # Necess·rio transformaÁ„o para atender esse pressuposto
+                                              # Necess√°rio transforma√ß√£o para atender esse pressuposto
 
 library("car")
-dwt(lm(AOVDados)) #Os erros s„o independentes
+dwt(lm(AOVDados)) #Os erros s√£o independentes
 
 library(asbio)
-tukey.add.test(dados$VarResp,  dados$Rep, dados$Trat)#Modelo n„o pode ser considerado aditivo
+tukey.add.test(dados$VarResp,  dados$Rep, dados$Trat)#Modelo n√£o pode ser considerado aditivo
 
 
 
-##------------------- Testando TransformaÁıes Comuns -------------------##
+##------------------- Testando Transforma√ß√µes Comuns -------------------##
 
 # Raiz Quadrada
 dados$RaizQuadVarResp<-dados$VarResp^0.5 # Adicionando uma nova coluna aos nossos dados
-                                         # Denominado VarResp0.18 que receberar a transformaÁ„o
+                                         # Denominado VarResp0.18 que receberar a transforma√ß√£o
                                          # VarResp^0.18
 
 AOVTransformado<- aov(RaizQuadVarResp~Trat+Rep, data=dados) # AOV dos dados transformados para
@@ -53,11 +53,11 @@ AOVTransformado<- aov(RaizQuadVarResp~Trat+Rep, data=dados) # AOV dos dados tran
 
 shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade atendido
 bartlett.test(residuals(AOVTransformado)~dados$Trat) # Pressuposto da Homocedasticidade atendido
-dwt(lm(AOVTransformado)) #Os erros s„o independentes
+dwt(lm(AOVTransformado)) #Os erros s√£o independentes
 tukey.add.test(dados$RaizQuadVarResp,  dados$Rep, dados$Trat) #Pressuposto da Aditividade atendido
 
 
-# Raiz C˙bica
+# Raiz C√∫bica
 
 dados$RaizCubVarResp<-dados$VarResp^(1/3)
 
@@ -65,7 +65,7 @@ AOVTransformado<- aov(RaizCubVarResp~Trat+Rep, data=dados)
 
 shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade atendido
 bartlett.test(residuals(AOVTransformado)~dados$Trat) # Pressuposto da Homocedasticidade atendido
-dwt(lm(AOVTransformado)) #Os erros s„o independentes
+dwt(lm(AOVTransformado)) #Os erros s√£o independentes
 tukey.add.test(dados$RaizCubVarResp,  dados$Rep, dados$Trat) #Pressuposto da Aditividade atendido
 
 #Log
@@ -75,18 +75,18 @@ AOVTransformado<- aov(LogVarResp~Trat+Rep, data=dados)
 
 shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade atendido
 bartlett.test(residuals(AOVTransformado)~dados$Trat) # Pressuposto da Homocedasticidade atendido
-dwt(lm(AOVTransformado)) #Os erros s„o independentes
+dwt(lm(AOVTransformado)) #Os erros s√£o independentes
 tukey.add.test(dados$LogVarResp,  dados$Rep, dados$Trat) #Pressuposto da Aditividade atendido
 
 
-#PotÍncia
+#Pot√™ncia
 dados$VarResp2<-dados$VarResp^2  
 
 AOVTransformado<- aov(VarResp2~Trat+Rep, data=dados)
 
-shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade N√O atendido
-bartlett.test(residuals(AOVTransformado)~dados$Trat) # Pressuposto da homocedasticidade N√O atendido
-dwt(lm(AOVTransformado)) #Os erros s„o independentes
+shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade N√ÉO atendido
+bartlett.test(residuals(AOVTransformado)~dados$Trat) # Pressuposto da homocedasticidade N√ÉO atendido
+dwt(lm(AOVTransformado)) #Os erros s√£o independentes
 tukey.add.test(dados$LogVarResp,  dados$Rep, dados$Trat) #Pressuposto da Aditividade atendido
 
 
@@ -105,9 +105,9 @@ lambda <- boxcox(AOVDados)$x[which(boxcox(AOVDados)$y==max(boxcox(AOVDados)$y))]
 # ou lambda <- bc$x[which(bc$y==max(bc$y))]
 lambda
 
-# usando a tranformaÁ„o indicada -> 0.1818182 ~ 0.18
+# usando a tranforma√ß√£o indicada -> 0.1818182 ~ 0.18
 dados$VarResp0.18<-dados$VarResp^0.18  # Adicionando uma nova coluna aos nossos dados
-                                       # Denominado VarResp0.18 que receberar a transformaÁ„o
+                                       # Denominado VarResp0.18 que receberar a transforma√ß√£o
                                        # VarResp^0.18
 
 AOVTransformado<- aov(VarResp0.18~Trat, data=dados) # AOV dos dados transformados para extrair
@@ -117,12 +117,12 @@ shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade atendido
 
 bartlett.test(residuals(AOVTransformado)~dados$Trat) # Pressuposto da Homocedasticidade atendido
  
-dwt(lm(AOVTransformado)) #Os erros s„o independentes
+dwt(lm(AOVTransformado)) #Os erros s√£o independentes
 tukey.add.test(dados$VarResp0.18,  dados$Rep, dados$Trat) #Pressuposto da Aditividade atendido
 
 # Uma vez atendido aos pressupostos. Pode-se submeter os dados a ANOVA
-# Nas prÛximas rotinas ser„o destacados as an·lises dos delineamentos
-# b·sicos Inteirameira Casualizado (DIC) e Blocos Completos Casualizados (DBC)
+# Nas pr√≥ximas rotinas ser√£o destacados as an√°lises dos delineamentos
+# b√°sicos Inteirameira Casualizado (DIC) e Blocos Completos Casualizados (DBC)
 
 
 ##---------------------------------- FIM -------------------------------##
