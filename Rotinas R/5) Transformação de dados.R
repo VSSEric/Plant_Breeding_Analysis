@@ -110,7 +110,7 @@ dados$VarResp0.18<-dados$VarResp^0.18  # Adicionando uma nova coluna aos nossos 
                                        # Denominado VarResp0.18 que receberar a transformação
                                        # VarResp^0.18
 
-AOVTransformado<- aov(VarResp0.18~Trat, data=dados) # AOV dos dados transformados para extrair
+AOVTransformado<- aov(VarResp0.18~Trat+Rep, data=dados) # AOV dos dados transformados para extrair
                                                     # os residuos.
 
 shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade atendido
