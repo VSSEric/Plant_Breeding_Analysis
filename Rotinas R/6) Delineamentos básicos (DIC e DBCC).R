@@ -5,71 +5,71 @@
 ###########                     20/09/2019                   ###########
 ########################################################################
 
-##---------------- DELINEAMENTOS EXPERIMENTAIS B¡SICOS ---------------##
+##---------------- DELINEAMENTOS EXPERIMENTAIS B√ÅSICOS ---------------##
 
-# Nesta rotina ser„o abordados a an·lises de dados de delineamentos
-# experimentais b·sicos como o Inteiramente Casualizado (DIC) e o
+# Nesta rotina ser√£o abordados a an√°lises de dados de delineamentos
+# experimentais b√°sicos como o Inteiramente Casualizado (DIC) e o
 # blocos completos casualizados (DBC ou DBCC).
 
-# OBS.: Nesta rotina ser· utilizado os exemplos 4,5 e 6
+# OBS.: Nesta rotina ser√° utilizado os exemplos 4,5 e 6
 
 
 
 ##-------------- DELINEAMENTOS INTEIRAMENTE CASUALIZADO --------------##
 
 # O DIC possui algumas vantagens como maior flexibilidade uma vez que
-# n„o se tem nenhuma restriÁ„o quanto a casualizaÁ„o dos tratamento.
-# Outra grande vantagem È que este delineamento provÍ um maior n˙mero de
-# graus de liberdade para o resÌduo.
+# n√£o se tem nenhuma restri√ß√£o quanto a casualiza√ß√£o dos tratamento.
+# Outra grande vantagem √© que este delineamento prov√™ um maior n√∫mero de
+# graus de liberdade para o res√≠duo.
 
-# Embora apresente essas vantagens, este delineamento È pouco robusto quando
-# se lida com ·reas heterogeneas. Dessa forma, toda variaÁ„o que n„o È devido
-# ao efeito dos tratamentos em estudo ser· adicionado ao resÌduo, dessa forma,
-# este delineamento requer um maior rigor experimental. Sendo, por fim, n„o
-# indicado para experimentos fitotecnicos ou genÈticos a nivel de campo.
+# Embora apresente essas vantagens, este delineamento √© pouco robusto quando
+# se lida com √°reas heterogeneas. Dessa forma, toda varia√ß√£o que n√£o √© devido
+# ao efeito dos tratamentos em estudo ser√° adicionado ao res√≠duo, dessa forma,
+# este delineamento requer um maior rigor experimental. Sendo, por fim, n√£o
+# indicado para experimentos fitotecnicos ou gen√©ticos a nivel de campo.
 
 
-# Mais informaÁıes a respeito do Delineamento Inteiramento Casualizado podem ser
+# Mais informa√ß√µes a respeito do Delineamento Inteiramento Casualizado podem ser
 # encontradas no livro base: 
 
-# RAMALHO, M. A. P.; FERREIRA, D. F.; OLIVEIRA, A. C. de. ExperimentaÁ„o 
-# em GenÈtica e Melhoramento de Plantas: 3.ed. Lavras: Editora UFLA, 2012 
+# RAMALHO, M. A. P.; FERREIRA, D. F.; OLIVEIRA, A. C. de. Experimenta√ß√£o 
+# em Gen√©tica e Melhoramento de Plantas: 3.ed. Lavras: Editora UFLA, 2012 
 
-setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis") #Definir diretÛrio ou Ctrl+Shift+H
+setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis") #Definir diret√≥rio ou Ctrl+Shift+H
 dir()
 dados<-read.table("exemplo4.txt", h=T)
-str(dados) #Observar que LINHAGENS (LIN) est„o sendo consideradas como int e n„o como fator 
+str(dados) #Observar que LINHAGENS (LIN) est√£o sendo consideradas como int e n√£o como fator 
 dados<-transform(dados, LIN=factor(LIN)) #Transformando LINHAGENS em fator.
 str(dados) #Check!
 
 ##----> Modelo DIC:   Yij = m + Ti + eij
 # Em que:
-# Yij: observaÁ„o da parcela que recebeu o i-esimo tratamento na j-esima repetiÁ„o
-# m: mÈdia geral associada a todas as repetiÁıes
+# Yij: observa√ß√£o da parcela que recebeu o i-esimo tratamento na j-esima repeti√ß√£o
+# m: m√©dia geral associada a todas as repeti√ß√µes
 # Ti: efeito ("Fixo ou Aleatorio") do i-esimo tratamento
-# eij: erro aleatorio associado a observaÁ„o ij.
+# eij: erro aleatorio associado a observa√ß√£o ij.
 
-# Saber o modelo dos delineamentos È importante, pois indicaremos para o R como È o
+# Saber o modelo dos delineamentos √© importante, pois indicaremos para o R como √© o
 # modelo a ser utilizado.
 
-#FunÁ„o aov
+#Fun√ß√£o aov
 #Objeto<-aov(VariavelResposta ~ Tratamento, data = ??) # Aqui indica-se para o R que
                                                        # a nossa variavel resposta deve
-                                                       #ser an·lisada em funÁ„o ( ~ ) 
+                                                       #ser an√°lisada em fun√ß√£o ( ~ ) 
                                                        #dos nossos tratamentos
 #Exemplo 1 --> Fator Qualitativo
 
 AOVDados<-aov(DIAM ~ LIN, data = dados) 
 
-##--->> AOVDados$residuals <<---## Sempre testar os pressupostos antes das an·lises
+##--->> AOVDados$residuals <<---## Sempre testar os pressupostos antes das an√°lises
 
-# Uma vez atendidos aos pressupostos, procede-se a a an·lise de variancia
+# Uma vez atendidos aos pressupostos, procede-se a a an√°lise de variancia
 
 
 #### DADOS BALANCEADOS
 
 AOVDados<-aov(DIAM ~ LIN, data = dados)# Yij = m + Ti + eij
-anova(AOVDados)    #Quadro de An·lise de Vari‚ncia
+anova(AOVDados)    #Quadro de An√°lise de Vari√¢ncia
 cv.model(AOVDados) #CV%
 
 library(agricolae)
@@ -83,20 +83,20 @@ summary(sk)
 
 # UTILIZANDO O PACOTE ExpDes.pt
 
-# O Pacote ExpDes.pt È um excelente pacote para realizar as an·lises dos delineamentos b·sicos
-# Possui diversas an·lises, e È possivel solicitar o teste de comparaÁ„o de mÈdias ou definir
-# reta de regress„o. AlÈm disso, a funÁ„o testa os pressupostos da Normalidade e Homocedasticidade
+# O Pacote ExpDes.pt √© um excelente pacote para realizar as an√°lises dos delineamentos b√°sicos
+# Possui diversas an√°lises, e √© possivel solicitar o teste de compara√ß√£o de m√©dias ou definir
+# reta de regress√£o. Al√©m disso, a fun√ß√£o testa os pressupostos da Normalidade e Homocedasticidade
 
 
 library(ExpDes.pt)
 
 dic(trat=dados$LIN, resp=dados$DIAM, quali = TRUE, mcomp = "tukey", nl = FALSE,
-    hvar='bartlett', sigT = 0.05, sigF = 0.05) # PRESSUPOSTOS ATENDIDOS                                 # NECESS¡RIO TRANSFORMA«√O DOS DADOS
+    hvar='bartlett', sigT = 0.05, sigF = 0.05) # PRESSUPOSTOS ATENDIDOS  
 
 
-#Vamos pedir para escrever um arquivo .txt com toda a nossa an·lise
+#Vamos pedir para escrever um arquivo .txt com toda a nossa an√°lise
 
-sink("An·lise de Vari‚ncia - DIC.txt", type = c ("output"))
+sink("An√°lise de Vari√¢ncia - DIC.txt", type = c ("output"))
 
 dic(trat=dados$LIN, resp=dados$DIAM, quali = TRUE, mcomp = "tukey", nl = FALSE,
     hvar='bartlett', sigT = 0.05, sigF = 0.05)
@@ -113,19 +113,19 @@ str(dados2)  #Efeito quantitativo --> INT = ok!
 analise<-dic(dados2$DOSE, dados2$ALTURA, quali = FALSE) # PRESSUPOSTOS ATENDIDOS
 
 # Linear
-graficos(analise, grau = 1, mod = TRUE, main = "Gr·fico Regress„o ", sub = " ",
+graficos(analise, grau = 1, mod = TRUE, main = "Gr√°fico Regress√£o ", sub = " ",
          xlab = "DOSE", ylab = "ALTURA", pch = 19,
          xlim = NULL, ylim = NULL, bty = "o")
 
 # Quadratica
-graficos(analise, grau = 2, mod = TRUE, main = "Gr·fico Regress„o ", sub = " ",
+graficos(analise, grau = 2, mod = TRUE, main = "Gr√°fico Regress√£o ", sub = " ",
          xlab = "DOSE", ylab = "ALTURA", pch = 19,
          xlim = NULL, ylim = NULL, bty = "o")
 
 
-#Vamos pedir para escrever um arquivo .txt com toda a nossa an·lise
+#Vamos pedir para escrever um arquivo .txt com toda a nossa an√°lise
 
-sink("An·lise de Vari‚ncia - DIC Quantitativo.txt", type = c ("output"))
+sink("An√°lise de Vari√¢ncia - DIC Quantitativo.txt", type = c ("output"))
 
 dic(trat=dados2$DOSE, resp=dados2$ALTURA, quali = FALSE)
 
@@ -135,28 +135,28 @@ sink()
 ##-------------- DELINEAMENTOS EM BLOCOS CAUSALIZADOS ---------------##
 
 # O DBC utiliza-se do principio de controle local como forma de atenuar
-# os efeitos residuais. Este delineamento visa controlar fontes de variaÁ„o
+# os efeitos residuais. Este delineamento visa controlar fontes de varia√ß√£o
 # conhecidas a partir do efeito de blocagem
 
-# O DBC apresenta ent„o restriÁıes quando a sua casualizaÁ„o. Ou seja,
-# em cada bloco deve-se ter todos os tratamentos ‡ serem avaliados
-# de forma a promover comparaÁıes justas entre os tratamentos.
+# O DBC apresenta ent√£o restri√ß√µes quando a sua casualiza√ß√£o. Ou seja,
+# em cada bloco deve-se ter todos os tratamentos √† serem avaliados
+# de forma a promover compara√ß√µes justas entre os tratamentos.
 
-# Espera-se aqui controlar essas fontes de variaÁıes conhecidas e
-# fornecer condiÁıes homogeneas ‡ todos os tratamentos.
+# Espera-se aqui controlar essas fontes de varia√ß√µes conhecidas e
+# fornecer condi√ß√µes homogeneas √† todos os tratamentos.
 
-# O preÁo pela utilizaÁ„o da blocagem È refletido na reduÁ„o dos graus
-# de liberdade do resÌduo em detrimento dos graus de liberdade dos blocos
+# O pre√ßo pela utiliza√ß√£o da blocagem √© refletido na redu√ß√£o dos graus
+# de liberdade do res√≠duo em detrimento dos graus de liberdade dos blocos
 # GLblocos = (r-1)
 
-# Este È um dos delineamentos mais utilizados na fitotecnia e melhoramento
+# Este √© um dos delineamentos mais utilizados na fitotecnia e melhoramento
 # de plantas. 
 
-# Mais informaÁıes a respeito do Delineamento Em Blocos Casualizados podem ser
+# Mais informa√ß√µes a respeito do Delineamento Em Blocos Casualizados podem ser
 # encontradas no livro base: 
 
-# RAMALHO, M. A. P.; FERREIRA, D. F.; OLIVEIRA, A. C. de. ExperimentaÁ„o 
-# em GenÈtica e Melhoramento de Plantas: 3.ed. Lavras: Editora UFLA, 2012 
+# RAMALHO, M. A. P.; FERREIRA, D. F.; OLIVEIRA, A. C. de. Experimenta√ß√£o 
+# em Gen√©tica e Melhoramento de Plantas: 3.ed. Lavras: Editora UFLA, 2012 
 
 setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis")
 dir()
@@ -169,26 +169,26 @@ str(dados) #Check!
 
 ##----> Modelo DBC:   Yij = m + Ti + bj + eij
 # Em que:
-# Yij: observaÁ„o da parcela que recebeu o i-esimo tratamento no j-esimo bloco
-# m: mÈdia geral associada a todas as repetiÁıes
+# Yij: observa√ß√£o da parcela que recebeu o i-esimo tratamento no j-esimo bloco
+# m: m√©dia geral associada a todas as repeti√ß√µes
 # Ti: efeito ("Fixo ou Aleatorio") do i-esimo tratamento
 # bj: efeito ("Fixo ou Aleatorio") do j-esimo bloco
-# eij: erro aleatorio associado a observaÁ„o ij.
+# eij: erro aleatorio associado a observa√ß√£o ij.
 
 
 #Exemplo 1 --> Fator Qualitativo
 
 AOVDados<-aov(Brix ~ Epoca + Bloco, data = dados) 
 
-##--->> AOVDados$residuals <<---## Sempre testar os pressupostos antes das an·lises
+##--->> AOVDados$residuals <<---## Sempre testar os pressupostos antes das an√°lises
 
-# Uma vez atendidos aos pressupostos, procede-se a a an·lise de variancia
+# Uma vez atendidos aos pressupostos, procede-se a a an√°lise de variancia
 
 
 #### DADOS BALANCEADOS
 
 AOVDados<-aov(Brix ~ Epoca + Bloco, data = dados)# Yij = m + Ti + bj + eij
-anova(AOVDados)    #Quadro de An·lise de Vari‚ncia
+anova(AOVDados)    #Quadro de An√°lise de Vari√¢ncia
 cv.model(AOVDados) #CV%
 
 # UTILIZANDO O PACOTE ExpDes.pt
@@ -199,9 +199,9 @@ dbc(trat=dados$Epoca, bloco=dados$Bloco, resp=dados$Brix, quali = TRUE, mcomp = 
     hvar='oneillmathews', sigT = 0.05, sigF = 0.05) # PRESSUPOSTOS ATENDIDOS
 
 
-#Vamos pedir para escrever um arquivo .txt com toda a nossa an·lise
+#Vamos pedir para escrever um arquivo .txt com toda a nossa an√°lise
 
-sink("An·lise de Vari‚ncia - DBC.txt", type = c ("output"))
+sink("An√°lise de Vari√¢ncia - DBC.txt", type = c ("output"))
 
 dbc(trat=dados$Epoca, bloco=dados$Bloco, resp=dados$Brix, quali = TRUE, mcomp = "tukey", nl=FALSE,
     hvar='oneillmathews', sigT = 0.05, sigF = 0.05)
@@ -223,19 +223,19 @@ analiseDBC<-dbc(trat=dados2$Epoca, bloco=dados2$Bloco, resp=dados2$Brix, quali =
 
 
 # Linear
-graficos(analiseDBC, grau = 1, mod = TRUE, main = "Gr·fico Regress„o ", sub = " ",
+graficos(analiseDBC, grau = 1, mod = TRUE, main = "Gr√°fico Regress√£o ", sub = " ",
          xlab = "Epoca", ylab = "Brix", pch = 19,
          xlim = NULL, ylim = NULL, bty = "o")
 
 # Quadratica
-graficos(analiseDBC, grau = 2, mod = TRUE, main = "Gr·fico Regress„o ", sub = " ",
+graficos(analiseDBC, grau = 2, mod = TRUE, main = "Gr√°fico Regress√£o ", sub = " ",
          xlab = "Epoca", ylab = "Brix", pch = 19,
          xlim = NULL, ylim = NULL, bty = "o")
 
 
-#Vamos pedir para escrever um arquivo .txt com toda a nossa an·lise
+#Vamos pedir para escrever um arquivo .txt com toda a nossa an√°lise
 
-sink("An·lise de Vari‚ncia - DBC Quantitativo.txt", type = c ("output"))
+sink("An√°lise de Vari√¢ncia - DBC Quantitativo.txt", type = c ("output"))
 
 dbc(trat=dados2$Epoca, bloco=dados2$Bloco, resp=dados2$Brix, quali = FALSE)
 
