@@ -49,7 +49,7 @@ dados$RaizQuadVarResp<-dados$VarResp^0.5 # Adicionando uma nova coluna aos nosso
                                          # VarResp^0.18
 
 AOVTransformado<- aov(RaizQuadVarResp~Trat+Rep, data=dados) # AOV dos dados transformados para
-                                                        # extrair os residuos.
+                                                            # extrair os residuos.
 
 shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade atendido
 bartlett.test(residuals(AOVTransformado)~dados$Trat) # Pressuposto da Homocedasticidade atendido
@@ -111,7 +111,7 @@ dados$VarResp0.18<-dados$VarResp^0.18  # Adicionando uma nova coluna aos nossos 
                                        # VarResp^0.18
 
 AOVTransformado<- aov(VarResp0.18~Trat+Rep, data=dados) # AOV dos dados transformados para extrair
-                                                    # os residuos.
+                                                        # os residuos.
 
 shapiro.test(residuals(AOVTransformado)) # Pressuposto da Normalidade atendido
 
