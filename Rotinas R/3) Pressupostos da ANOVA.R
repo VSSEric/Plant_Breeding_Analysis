@@ -30,13 +30,15 @@
 setwd("C:\\Users\\Usuario\\Desktop\\Plant_Breeding_Analysis") #Definir diretório ou Ctrl+Shift+H
 dir()
 dados<-read.table("exemplo3.txt", h=T)
-str(dados) #Estrutura da tabela 
+str(dados) #Estrutura da tabela --> Trat INT?!?!
+dados<-transform(dados, Trat=factor(Trat)) #Transformando Trat em fator!
+str(dados) #Conferindo os fatores
 summary(dados) #Média e médiana dos dados.
 
 # Para realizar as análises dos pressupostos é necessário extrair primeiramente os ERROS.
 # Neste exemplo vamos trabalhar com um conjuto de dados oriundos de um experimento em DIC
 
-AOVDados<-aov(Produtividade ~ Trat, data = dados)
+AOVDados<-aov(ABS ~ Trat, data = dados)
 AOVDados$residuals #Extraindo os residuos/erros do nosso conjunto de dados
 
 shapiro.test(AOVDados$residuals) # O teste de Shapiro-Wilk é um dos teste para analisar a 
@@ -66,13 +68,13 @@ histPlot(x = as.timeSeries(AOVDados$residuals)) #observar a distribuição dos d
 getwd() # Verificar o diretório que se está trabalhando
 dados
 
-bartlett.test(Produtividade~Trat,data=dados) # O teste de Bartlett é um dos teste utilizados
-                                             # para aferir a homocedasticidade dos erros. 
-                                             # Semelhante ao teste de Normalidade, desejamos
-                                             # aceitar a hipótese de nulidade
-                                             # H0: Os erros são homogêneos, assim, 
-                                             # desejamos o p-value superior ao nivel de 
-                                             # significância, exemplo p-value > 0.05
+bartlett.test(ABS~Trat,data=dados) # O teste de Bartlett é um dos teste utilizados
+                                   # para aferir a homocedasticidade dos erros. 
+                                   # Semelhante ao teste de Normalidade, desejamos
+                                   # aceitar a hipótese de nulidade
+                                   # H0: Os erros são homogêneos, assim, 
+                                   # desejamos o p-value superior ao nivel de 
+                                   # significância, exemplo p-value > 0.05
 
 
 # Neste exemplo, de acordo com o teste de Bartlett os erros são homogêneos
@@ -110,19 +112,19 @@ library(asbio)
 getwd() # Verificar o diretório que se está trabalhando
 dados
 
-tukey.add.test(dados$Produtividade,  dados$Rep, dados$Trat) # Neste caso será utilizado o 
-                                                            # teste de Aditividade de Tukey
-                                                            # H0: O modelo é aditivo
-                                                            # Dessa forma desejamos o p-value 
-                                                            # superior ao nivel de significância
-                                                            # exemplo: p-value > 0.05
+tukey.add.test(dados$ABS,  dados$Rep, dados$Trat) # Neste caso será utilizado o 
+                                                  # teste de Aditividade de Tukey
+                                                  # H0: O modelo é aditivo
+                                                  # Dessa forma desejamos o p-value 
+                                                  # superior ao nivel de significância
+                                                  # exemplo: p-value > 0.05
 
 
 
 attach(dados) # Utilizando a função attach/detach podemos fixar o objeto dados, simplificando
               # para:
 
-tukey.add.test(Produtividade, Rep, Trat)
+tukey.add.test(ABS, Rep, Trat)
 
 detach(dados)
 
