@@ -13,6 +13,10 @@
 
 # OBS.: Nesta rotina será utilizado os exemplos 4,5 e 6
 
+# Os conjuntos de dados dos exemlos foram retirados do 
+# PDF:Estatística Básica e Experimentação no R - Walmes Marques Zeviani
+# Disponivel em: http://www.leg.ufpr.br/~walmes/cursoR/cnpaf/cursoR5.pdf
+
 
 
 ##-------------- DELINEAMENTOS INTEIRAMENTE CASUALIZADO --------------##
