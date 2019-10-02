@@ -76,6 +76,10 @@ bartlett.test(ABS~Trat,data=dados) # O teste de Bartlett é um dos teste utiliza
                                    # desejamos o p-value superior ao nivel de 
                                    # significância, exemplo p-value > 0.05
 
+bartlett.test(AOVDados$residuals ~ Trat,data=dados)
+
+# Observer que utilizando os dados e os residuos temos o mesmo resultado? Por quê?
+# O mesmo não ocorre em DBC!!!
 
 # Neste exemplo, de acordo com o teste de Bartlett os erros são homogêneos
 
@@ -104,42 +108,17 @@ dwt(lm(AOVDados)) # Neste caso será utilizado o teste de Durbin-Watson
 
 ##---------------------------- Aditividade ---------------------------##
 
-# Para verificar a Aditividade do modelo pode-se utilizar o pacote asbio
+# Em DIC o pressuposto da Aditividade não é necessario ser testado, uma vez
+# que a aditividade está relacionado aos efeitos principais. Em dic tem-se
+# Yij = m + Ti + eij, sendo apenas o efeito de tratamento considerado como
+# principal.
 
-install.packages("asbio")
-library(asbio)
-
-getwd() # Verificar o diretório que se está trabalhando
-dados
-
-tukey.add.test(dados$ABS,  dados$Rep, dados$Trat) # Neste caso será utilizado o 
-                                                  # teste de Aditividade de Tukey
-                                                  # H0: O modelo é aditivo
-                                                  # Dessa forma desejamos o p-value 
-                                                  # superior ao nivel de significância
-                                                  # exemplo: p-value > 0.05
-
-
-
-attach(dados) # Utilizando a função attach/detach podemos fixar o objeto dados, simplificando
-              # para:
-
-tukey.add.test(ABS, Rep, Trat)
-
-detach(dados)
-
-# O modelo é aditivo
 
 ##--------------------- Pressupostos não atendidos --------------------##
 
 
-
-
 # Caso os pressupostos não sejam atendidos pode-se adotar algumas estrátegias
 # para submeter os dados à Análise de Variância, uma delas é a transformação 
-# de dados. Que será vista na próxima rotina.
-
-
-
+# de dados. 
 
 ##-------------------------------  FIM  -------------------------------##
