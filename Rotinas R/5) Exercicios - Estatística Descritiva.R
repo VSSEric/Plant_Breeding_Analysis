@@ -6,36 +6,36 @@
 ########################################################################
 
 
-#1) Simule uma distribuiÁ„o Normal com 100 elementos, mÈdia 10 e vari‚ncia 4
+#1) Simule uma distribui√ß√£o Normal com 100 elementos, m√©dia 10 e vari√¢ncia 4
 
 a<-rnorm(n=100, mean=10, sd = 2); a
 
 
-#2) Desta distribuiÁ„o calcule:
+#2) Desta distribui√ß√£o calcule:
       
-#M…DIA
+#M√âDIA
 
 SOMA<-sum(a) # E(Xi)
 SOMA
 N<-length(a)
 
 media<-SOMA/N; media # E(Xi)/N
-mean(a) # Utilizar a funÁ„o do R para conferir
+mean(a) # Utilizar a fun√ß√£o do R para conferir
 
 
 #MODA
-      # A Moda n„o possui um comando especifico no R. Assim È necessario criar
-      # uma funÁ„o que realize o procedimento da moda (Valor que mais se repete)
-      # Neste caso, retirei essa funÁ„o de: https://www.tutorialspoint.com/r/r_mean_median_mode.htm
+      # A Moda n√£o possui um comando especifico no R. Assim √© necessario criar
+      # uma fun√ß√£o que realize o procedimento da moda (Valor que mais se repete)
+      # Neste caso, retirei essa fun√ß√£o de: https://www.tutorialspoint.com/r/r_mean_median_mode.htm
 
-# Criando a funÁ„o Getmode
+# Criando a fun√ß√£o Getmode
 
 getmode <- function(a) {
   uniqa <- unique(a)
   uniqa[which.max(tabulate(match(a, uniqa)))]
 }
 
-getmode(a) # basta utilizar a funÁ„o no objeto a
+getmode(a) # basta utilizar a fun√ß√£o no objeto a
 
 
 #MEDIANA
@@ -51,7 +51,7 @@ median(a) #Conferir
 (a[N]) # Se o ordenamento for decrescente
 min(a) # Conferir
       
-#M¡XIMO
+#M√ÅXIMO
 (a[1]) # Se o ordenamento for decrescente
 (a[N]) # Se o ordenamento for crescente
 max(a) # Conferir
@@ -63,17 +63,17 @@ max(a) # Conferir
 max(a) - min(a) # Conferir
 
       
-#VARI¬NCIA
+#VARI√ÇNCIA
 
-sum((a[1:N]-mean(a))^2)/(N-1) #VARI¬NCIA = (E(xi - Xmedia)^2)/N-1
+sum((a[1:N]-mean(a))^2)/(N-1) #VARI√ÇNCIA = (E(xi - Xmedia)^2)/N-1
 var(a) # Conferir
       
 
-#DESVIO PADR√O
-sqrt(sum((a[1:N]-mean(a))^2)/(N-1)) #Raiz quadrada da vari‚ncia    
+#DESVIO PADR√ÉO
+sqrt(sum((a[1:N]-mean(a))^2)/(N-1)) #Raiz quadrada da vari√¢ncia    
 sd(a) #Conferir
 
-#COEFICIENTE DE VARIA«√O
+#COEFICIENTE DE VARIA√á√ÉO
 
 
 CV<-sqrt(sum((a[1:N]-mean(a))^2)/(N-1))/(sum(a)/N)*100 ; CV
@@ -81,7 +81,7 @@ CV<-sqrt(sum((a[1:N]-mean(a))^2)/(N-1))/(sum(a)/N)*100 ; CV
 sd(a)/mean(a)*100 #Conferir
 
 
-#GR¡FICO DA DISTRIBUI«√O
+#GR√ÅFICO DA DISTRIBUI√á√ÉO
 
 install.packages("fBasics")
 library(fBasics)
@@ -103,7 +103,7 @@ histPlot(x = as.timeSeries(e))
 # A medida que N aumenta, o que acontece?
 
 
-#GR¡FICO BOXPLOT
+#GR√ÅFICO BOXPLOT
 
 boxplot(a)
 boxplot(b)
@@ -112,7 +112,7 @@ boxplot(d)
 boxplot(e)
 boxplot(a,b,c,d,e,main="BoxPlot",names=c(LETTERS[1:5]),xlab="Objetos",ylab="Eixo Y")
 
-#Interprete o gr·fico, quais informaÁıes este gr·fico fornece?
+#Interprete o gr√°fico, quais informa√ß√µes este gr√°fico fornece?
 
 # https://www.youtube.com/watch?v=1fMCymE0ZPE   (Grupo Voitto)
 
