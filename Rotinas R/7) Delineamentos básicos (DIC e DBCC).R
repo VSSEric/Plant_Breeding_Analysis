@@ -74,9 +74,10 @@ AOVDados<-aov(DIAM ~ LIN, data = dados)
 
 AOVDados<-aov(DIAM ~ LIN, data = dados)# Yij = m + Ti + eij
 anova(AOVDados)    #Quadro de Análise de Variância
-cv.model(AOVDados) #CV%
 
 library(agricolae)
+cv.model(AOVDados) #CV%
+
 TesteTukey<-HSD.test(y=dados$DIAM, trt=dados$LIN, DFerror=(df.residual(AOVDados)), MSerror=((deviance(AOVDados)/df.residual(AOVDados))), alpha=0.05)
 TesteTukey
 
