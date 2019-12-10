@@ -46,7 +46,7 @@ tukey.add.test(dados$VarResp,  dados$Rep, dados$Trat)#Modelo não pode ser consi
 # Raiz Quadrada
 dados$RaizQuadVarResp<-dados$VarResp^0.5 # Adicionando uma nova coluna aos nossos dados
                                          # Denominado VarResp0.18 que receberar a transformação
-                                         # VarResp^0.18
+                                         # VarResp^0.5
 
 AOVTransformado<- aov(RaizQuadVarResp~Trat+Rep, data=dados) # AOV dos dados transformados para
                                                             # extrair os residuos.
